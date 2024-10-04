@@ -1,0 +1,181 @@
+/*********Menú*******/
+.nav{
+    --state-close:scale(0);
+    --state-hamburguer:scale(1);
+    --state-menu:translate(-100%);
+
+    padding: 10px 10px 10px 10px;
+    grid-area: menu;
+    background-color: aqua;
+    color: white;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, max-content); 
+    }
+
+.nav:target{
+    --state-close:scale(1);
+    --state-hamburguer:scale(0);
+    --state-menu:translate(0);
+}
+
+.nav img{
+    height: 3em;
+    width: auto;   
+}
+
+.nav-hamburguer{
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transform: var(--state-hamburguer);
+    transition: .4s transform;
+}
+
+.nav-close{
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transform: var(--state-close);
+    transition: .4s transform;
+}
+
+.nav-links{
+    background-color: rgba(216, 112, 147, 0.814);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10;
+
+    display: grid;
+    align-content: center;
+    gap: 2em;
+    padding-left: 5%;
+
+    transform: var(--state-menu);
+    transition: .3s transform;
+    }
+
+.nav-item{
+    list-style: none;
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+/*******Galería*******/
+main{
+    grid-area: seccion-principal;
+    padding: 10px;
+    
+}
+
+main h2{
+    text-align: center;
+    margin: 20px 0 15px 0;
+    font-weight: 300;
+}
+
+.linea{
+    border-top: 5px solid #d2ff1f;
+}
+
+.boxes{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px; 
+}
+
+
+.box img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+   
+}
+
+
+/*********Pie de página********/
+footer{
+    grid-area: pie;
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/***********Movil*********/
+body{
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    border: 1px solid black;
+    grid-template-rows: 70px 10fr 200px;
+    grid-template-areas: 
+    'menu'
+    'seccion-principal'
+    'pie';
+}
+
+/************Escritorio******/
+@media (min-width:576px){
+    body{
+      grid-template-areas: 
+    'menu seccion-principal'
+    'menu seccion-principal'
+    'pie pie';  
+    grid-template-columns: 2fr 8fr;
+    }
+    .nav{
+        --state-hamburguer:scale(0);
+        --state-menu:translate(0);  
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        }
+    .nav img{
+        height: 6em;
+        width: auto; 
+        }
+        
+    .nav-links{
+        padding: 0;
+        background-color: aqua;
+        position: relative;
+        text-align: left;            
+        }
+    
+    .boxes{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px; 
+        }
+    
+    .box img{ 
+        transform: rotate(0deg);
+        transition: transform 1s;
+        }
+        
+    .box img:hover{
+        transform: rotate(45deg);
+        }
+
+    footer{
+        flex-direction: row;
+
+        }
+   
+       
+
+    }
