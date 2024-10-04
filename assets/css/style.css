@@ -117,7 +117,7 @@ footer{
 body{
     font-family: "Roboto", sans-serif;
     display: grid;
-    border: 1px solid black;
+    border: 0;
     grid-template-rows: 70px 10fr 200px;
     grid-template-areas: 
     'menu'
